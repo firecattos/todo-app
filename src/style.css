@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.pageContainer{
+    display: flex;
+    height: 100vh;
+}
+
+.pageContainer > *{
+    padding: 1rem;
+}
+
+.controls{
+    flex-basis: 25%;
+    background-color: #f0f0f0;
+}
+
+.userPanel{
+    margin-bottom: 2rem;
+}
+
+.todoControls > *{
+    margin-bottom: 7px;
+}
+
+.content{
+    flex-basis: 75%;
+}
+
+.todo{
+    display: flex;
+    justify-content: space-between;
+    max-width: 50vw;    /*change unit maybe*/
+    padding: 1rem;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    margin: 5px;
+}
