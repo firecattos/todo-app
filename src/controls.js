@@ -1,3 +1,6 @@
+import { openForm } from "./functions";
+import { closeForm } from "./functions";
+
 const controlPanel=document.createElement("div");
 controlPanel.className="controlPanel";
 
@@ -52,10 +55,10 @@ projectsHeader.className="projectsHeader";
 projectsHeader.textContent="Projects";
 projectFragment.appendChild(projectsHeader);
 
-const newProject=document.createElement("div");
+const newProject=document.createElement("div"); //maybe relocate this
 newProject.className="newProject";
 newProject.textContent="Add project";
-newProject.addEventListener("click", ()=>projectForm.hidden=false);
+newProject.addEventListener("click", ()=>openForm(projectForm));
 projectFragment.appendChild(newProject);
 
 const projectForm=document.createElement("form");
@@ -80,8 +83,9 @@ buttonContainer.appendChild(addButton);
 const cancelButton=document.createElement("button");
 cancelButton.className="projectButtons";
 cancelButton.id="cancel";
+cancelButton.type="reset";
 cancelButton.textContent="Cancel";
-//cancelButton.addEventListener...
+cancelButton.addEventListener("click", ()=>closeForm(projectForm));
 buttonContainer.appendChild(cancelButton);
 
 projectForm.appendChild(buttonContainer);
