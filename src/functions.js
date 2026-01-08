@@ -1,5 +1,3 @@
-const todos=[];
-
 class Todo{
     //constructor(title, description, dueDate, priority, id){
     constructor(title){
@@ -11,6 +9,22 @@ class Todo{
     }
 }
 
+class TodoList{
+    constructor(){
+        this.todos=[];
+    }
+
+    addTodo(title){
+        this.todos.push(new Todo(title));
+    }
+
+    getTodos(){
+        return this.todos;
+    }
+}
+
+const todoList=new TodoList();
+
 export function openForm(form){
     form.hidden=false;
 }
@@ -20,14 +34,16 @@ export function closeForm(form){
 }
 
 export function createTodo(desc){  //dataset for id
-    todos.push(new Todo(desc));
+    //todos.push(new Todo(desc));
+    todoList.addTodo(desc);
     //console.log("todos: "+todos[0].title);
 }
 
-export function renderTodo(){
-    console.table(todos);
+export function renderTodo(){   //change
+    let tempTodos=todoList.getTodos();
+    console.table(tempTodos);
     const renderFragment=document.createDocumentFragment();
-    todos.forEach((elem)=>{
+    tempTodos.forEach((elem)=>{
         const todoDiv=document.createElement("div");
         todoDiv.className="todo";
 
