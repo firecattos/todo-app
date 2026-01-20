@@ -37,4 +37,20 @@ body{
     background-color: antiquewhite;
     border-radius: 10px;
     margin: 5px;
+    gap: 1rem;
+}
+
+.todoTextContainer, .todoCommands{
+    display: flex;
+    gap: 1rem;
+}
+
+.completed{
+    text-decoration: line-through;
+    color: gray;
+    opacity: 60%;
+}
+
+.todoCommands > *, .todoTextContainer > *{
+    margin: 0;
 }
