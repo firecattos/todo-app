@@ -3,6 +3,7 @@ import { closeForm } from "./functions";
 /*import { createTodo } from "./functions";
 import { renderTodo } from "./functions";*/
 import { createAction } from "./functions";
+import { init } from "./functions"
 
 const contentContainer=document.createElement("div");
 contentContainer.className="contentContainer";
@@ -19,8 +20,9 @@ todoContainer.className="todoContainer";
 //test second container, works
 const renderedTodos=document.createElement("div");
 renderedTodos.className="renderedTodos";
-
 todoContainer.appendChild(renderedTodos);
+
+init(renderedTodos);    //container initalization
 
 let objectsFragment=document.createDocumentFragment();
 //create elements here with a function maybe
@@ -45,7 +47,8 @@ todoForm.hidden=true;
 todoForm.onkeydown = (e)=>{
     if(e.keyCode == 13){
         e.preventDefault();
-        createAction(newText.value, todoForm, renderedTodos);
+        //createAction(newText.value, todoForm, renderedTodos);
+        createAction(newText.value, todoForm);
     }
     if(e.keyCode == 27){
         todoForm.reset();
@@ -65,7 +68,8 @@ addButton.className="todoButtons";
 addButton.id="add";
 addButton.type="button";
 addButton.textContent="Create";
-addButton.addEventListener("click", ()=>createAction(newText.value, todoForm, renderedTodos));
+//addButton.addEventListener("click", ()=>createAction(newText.value, todoForm, renderedTodos));  //change
+addButton.addEventListener("click", ()=>createAction(newText.value, todoForm));
 buttonContainer.appendChild(addButton);
 
 const cancelButton=document.createElement("button");
